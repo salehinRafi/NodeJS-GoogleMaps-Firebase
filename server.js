@@ -25,11 +25,10 @@ app.use((request, response, next) => {
     next();
 });
 app.use("/location", location);
-
 // set root route
 app.get('/', (request, response) => {
-    // send message hello world
-    return response.send('Welcome to MEAN stack app');
+    console.log("Initialize Index.html")
+    response.sendfile('index.html');
 });
 
 //listen the express app to port 3000
