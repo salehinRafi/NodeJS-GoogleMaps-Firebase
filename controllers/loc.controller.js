@@ -28,18 +28,28 @@ module.exports = {
                 return info;
             }
         });
-
         /* Hard code location */
         /*
         var locations = [{
                 "name": "Mimos",
                 "lat": 3.047789,
                 "long": 101.696253,
+                "plate": "RS1111",
+                "speed": 10
             },
             {
                 "name": "Bernama",
                 "lat": 3.047723,
                 "long": 101.686895,
+                "plate": "RS1111",
+                "speed": 20
+            },
+            {
+                "name": "Tanglin",
+                "lat": 3.144405,
+                "long": 101.690836,
+                "plate": "RS1111",
+                "speed": 30
             }
         ];
         */

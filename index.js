@@ -36,7 +36,8 @@ function init_map() {
 
             google.maps.event.addListener(marker, 'click', (function(marker, i) {
                 return function() {
-                    infowindow.setContent(locations[i].name);
+                    var content = `Location: ${locations[i].name}, Speed: ${locations[i].speed}Km/H, Plate No: ${locations[i].plate}`;
+                    infowindow.setContent(content);
                     infowindow.open(map, marker);
                 }
             })(marker, i));
