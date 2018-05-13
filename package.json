@@ -1,23 +1,24 @@
 {
-  "name": "node.js_googlemaps_firebase",
-  "version": "1.0.0",
-  "description": "Tracking Car Location",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/salehinRafi/NodeJS-GoogleMaps-Firebase.git"
-  },
-  "author": "Salehin Rafi",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/salehinRafi/NodeJS-GoogleMaps-Firebase/issues"
-  },
-  "homepage": "https://github.com/salehinRafi/NodeJS-GoogleMaps-Firebase#readme",
-  "dependencies": {
-    "body-parser": "^1.18.2",
-    "express": "^4.16.3"
-  }
+    "name": "node.js_googlemaps_firebase",
+    "version": "1.0.0",
+    "description": "Tracking Car Location",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/salehinRafi/NodeJS-GoogleMaps-Firebase.git"
+    },
+    "author": "Salehin Rafi",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/salehinRafi/NodeJS-GoogleMaps-Firebase/issues"
+    },
+    "homepage": "https://github.com/salehinRafi/NodeJS-GoogleMaps-Firebase#readme",
+    "dependencies": {
+        "body-parser": "^1.18.2",
+        "express": "^4.16.3",
+        "firebase": "^4.13.0"
+    }
 }
