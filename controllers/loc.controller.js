@@ -1,20 +1,25 @@
-var firebase = require("firebase");
+var admin = require("firebase-admin");
 var serviceAccount = require("../config/firebase.json");
-firebase.initializeApp({
-    credential: serviceAccount,
-    databaseURL: "https://node-client-e6a27.firebaseio.com"
-});
+
 
 module.exports = {
+
     findAll(request, response) {
 
-        var ref = firebase.database().ref('/');
-        var locationRef = ref.child("maps");
+        var firebase = admin.initializeApp({
+            credential: admin.credential.cert(serviceAccount),
+            databaseURL: "https://maps-14046.firebaseio.com"
+        });
+
+        var ref = firebase.database().ref('maps-14046');
+        var locationRef = ref.child("/");
+        console.log(locationRef);
 
         var locations = locationRef.on("value", (snapshot) => {
             console.log(snapshot.key);
+            console.log(snapshot.val());
             exports.getItems = () => {
-                /* Get The required value and export it so as to be accessed from client*/
+                // Get The required value and export it so as to be accessed from client
                 var info = {};
                 var key = snapshot.key;
                 info[key] = [];
