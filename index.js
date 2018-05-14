@@ -13,8 +13,8 @@ function init_map() {
     });
 
     function getLocations(locations) {
-
         console.log(locations);
+        console.log(locations.length);
         directionsDisplay = new google.maps.DirectionsRenderer();
         var map = new google.maps.Map(document.getElementById('map-canvas'), {
             zoom: 10,
