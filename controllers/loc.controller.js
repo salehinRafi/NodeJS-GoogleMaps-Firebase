@@ -11,9 +11,18 @@ module.exports = {
             databaseURL: "https://maps-14046.firebaseio.com"
         });
 
-        var ref = firebase.database().ref('maps-14046');
-        var locationRef = ref.child("/");
-        console.log(locationRef);
+        var ref = firebase.database().ref('/');
+        var locationRef = ref.child("location");
+        var locate = locationRef.push();
+
+        console.log(locate.key);
+        locate.set({
+            name: "Bernama",
+            lat: 3.047723,
+            long: 101.686895,
+            plate: "RS1111",
+            speed: 20
+        });
 
         var locations = locationRef.on("value", (snapshot) => {
             console.log(snapshot.key);
