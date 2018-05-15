@@ -25,6 +25,7 @@ app.use((request, response, next) => {
     next();
 });
 app.use("/location", location);
+
 // set root route
 app.get('/', (request, response) => {
     console.log("Initialize Index.html")

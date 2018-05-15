@@ -12,9 +12,7 @@ function init_map() {
         }
     });
 
-    function getLocations(locations) {
-        console.log(locations);
-        console.log(locations.length);
+    function getLocations(vehicles) {
         directionsDisplay = new google.maps.DirectionsRenderer();
         var map = new google.maps.Map(document.getElementById('map-canvas'), {
             zoom: 10,
@@ -28,31 +26,42 @@ function init_map() {
         var request = {
             travelMode: google.maps.TravelMode.DRIVING
         };
-        for (i = 0; i < locations.length; i++) {
-            marker = new google.maps.Marker({
-                position: new google.maps.LatLng(locations[i].lat, locations[i].long),
-                map: map
-            });
 
-            google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                return function() {
-                    var content = `Location: ${locations[i].name}, Speed: ${locations[i].speed}Km/H, Plate No: ${locations[i].plate}`;
-                    infowindow.setContent(content);
-                    infowindow.open(map, marker);
-                }
-            })(marker, i));
+        for (i = 0; i < vehicles.length; i++) {
 
-            if (i == 0) request.origin = marker.getPosition();
-            else if (i == locations.length - 1) request.destination = marker.getPosition();
-            else {
-                if (!request.waypoints) request.waypoints = [];
-                request.waypoints.push({
-                    location: marker.getPosition(),
-                    stopover: true
+            var coordinates = vehicles[i].coordinates;
+            console.log(coordinates);
+            console.log(coordinates.length);
+            for (j = 0; j < coordinates.length; j++) {
+                var car = coordinates[j];
+                console.log(car);
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(car.latitude, car.longitude),
+                    map: map
                 });
+
+                google.maps.event.addListener(marker, 'click', (function(marker, j) {
+                    return function() {
+                        var content = `Engine: ${car.engine}, Speed: ${car.speed}
+                                Km/H, Plate No: ${car.plate}, Date: ${car.time}`;
+                        infowindow.setContent(content);
+                        infowindow.open(map, marker);
+                    }
+                })(marker, j));
+
+                if (j == 0) request.origin = marker.getPosition();
+                else if (j == coordinates.length - 1) request.destination = marker.getPosition();
+                else {
+                    if (!request.waypoints) request.waypoints = [];
+                    request.waypoints.push({
+                        location: marker.getPosition(),
+                        stopover: true
+                    });
+                }
             }
 
         }
+
         directionsService.route(request, function(result, status) {
             if (status == google.maps.DirectionsStatus.OK) {
                 directionsDisplay.setDirections(result);

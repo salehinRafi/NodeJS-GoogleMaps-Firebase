@@ -1,0 +1,18 @@
+{
+  "location" : {
+    "-LCRPE3z27ym_rOSnL2B" : {
+      "lat" : 3.047789,
+      "long" : 101.696253,
+      "name" : "Mimos",
+      "plate" : "RS1111",
+      "speed" : 10
+    },
+    "-LCRPmy6XMxyj-QHVmkl" : {
+      "lat" : 3.047723,
+      "long" : 101.686895,
+      "name" : "Bernama",
+      "plate" : "RS1111",
+      "speed" : 20
+    }
+  }
+}

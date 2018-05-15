@@ -23,14 +23,61 @@
             height: 100%;
             width: 100%;
         }
+        
+        .pac-card {
+            margin: 10px 10px 0 0;
+            border-radius: 2px 0 0 2px;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            outline: none;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            background-color: #fff;
+            font-family: Roboto;
+            padding-bottom: 12px;
+        }
+        
+        #btn {
+            width: 25%;
+            background-color: rgb(6, 126, 100);
+            color: #000;
+            border-radius: 5px;
+            box-shadow: 2px 2px 2px silver;
+        }
+        
+        #title {
+            color: #fff;
+            background-color: #4d90fe;
+            font-size: 25px;
+            font-weight: 500;
+            padding: 6px 12px;
+        }
     </style>
 </head>
 
 <body>
+    <div class="pac-card" id="pac-card">
+        <div>
+            <div align="center" id="title">
+                Click Here
+                <div align="center">
+                    <input type="button" id="btn" value="ADD" onclick="dispPlaces()" />
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="map-canvas"></div>
 </body>
 <script>
     init_map();
+
+    function dispPlaces() {
+        $.ajax({
+            url: '/location/add',
+            success: function(data) {
+                window.alert("Address added successfully");
+            }
+        });
+    }
 </script>
 
 </html>

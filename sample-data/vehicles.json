@@ -1,0 +1,53 @@
+{
+    "vehicles": {
+        "vehicle-1": {
+            "plate": "VK1502",
+            "coordinates": {
+                "0": {
+                    "latitude": 3.047062,
+                    "longitude": 101.696296,
+                    "speed": 10,
+                    "engine": 1,
+                    "time": "2017-04-02T02:04:22.881Z"
+                },
+
+                "1": {
+                    "latitude": 3.018102,
+                    "longitude": 101.714618,
+                    "speed": 20,
+                    "engine": 1,
+                    "time": "2017-04-02T02:04:22.881Z"
+                },
+
+                "2": {
+                    "latitude": 3.018252,
+                    "longitude": 101.711078,
+                    "speed": 30,
+                    "engine": 1,
+                    "time": "2017-04-02T02:04:22.881Z"
+                }
+            }
+        },
+
+        "vehicle-2": {
+            "plate": "VK1507",
+            "coordinates": {
+                "0": {
+                    "latitude": 3.017073,
+                    "longitude": 101.712794,
+                    "speed": 0,
+                    "engine": 0,
+                    "time": "2017-04-02T02:04:22.881Z"
+                },
+
+                "1": {
+                    "latitude": 3.009097,
+                    "longitude": 101.714388,
+                    "speed": 0,
+                    "engine": 0,
+                    "time": "2017-04-02T02:04:22.881Z"
+                }
+            }
+        }
+    }
+}

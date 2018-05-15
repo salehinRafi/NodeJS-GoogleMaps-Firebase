@@ -3,5 +3,6 @@ var router = express.Router();
 const LocController = require('../controllers/loc.controller');
 
 router.get('/', LocController.findAll); //location/ GET
+router.get('/add', LocController.addNew); //location/ GET
 
 module.exports = router;
