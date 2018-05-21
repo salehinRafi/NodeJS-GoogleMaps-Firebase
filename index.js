@@ -6,9 +6,10 @@ var directionsService = new google.maps.DirectionsService();
 function init_map() {
     // Retrieve Info
     $.ajax({
-        url: '/location',
+        url: '/location/find',
         success: function(data) {
             getLocations(data);
+            console.log(data);
         }
     });
 

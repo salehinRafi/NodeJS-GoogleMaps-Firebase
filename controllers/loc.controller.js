@@ -13,18 +13,6 @@ module.exports = {
 
         var ref = firebase.database().ref('/');
         var locationRef = ref.child("vehicles");
-        /*
-        var locate = locationRef.push();
-
-        console.log(locate.key);
-        locate.set({
-            name: "Bernama",
-            lat: 3.047723,
-            long: 101.686895,
-            plate: "RS1111",
-            speed: 20
-        });
-        */
         locationRef.once("value")
             .then((snapshot) => {
                 console.log("Snapshot Key: ", snapshot.key, "\n");
@@ -35,11 +23,49 @@ module.exports = {
                 var locations = Object.keys(data).map(key => {
                     return data[key];
                 });
+                console.log(locations);
                 // return all the jobs to the server with 200 status
                 return response.status(200).json(locations);
             });
     },
+    /**
+        addNew(request, response) {
 
+            var ref = firebase.database().ref('/');
+            var vehiclesRef = ref.child("vehicles");
+
+            var getLastnode = vehiclesRef.child("vehicle-1/lastNode");
+            const getNode = getLastnode.on("value", snapshot => {
+                let lastNode = 0;
+                lastNode = parseInt(snapshot.val()) + 1; //Convert String to Int
+                const node = Object.assign({}, lastNode);
+                return node;
+            }, function(error) {
+                console.log("Error: " + error.code);
+            });
+            console.log(getNode);
+
+            function getRandomInt(max) {
+                return Math.floor(Math.random() * Math.floor(max));
+            }
+
+            var coordinate = vehiclesRef.child("vehicle-1").push();
+            var latitude = 3.028832;
+            var longitude = 101.716490;
+            var speed = getRandomInt(100);
+
+            coordinate.set({
+                lastNode: {
+                    latitude,
+                    longitude,
+                    speed: 20,
+                    engine: 1,
+                    time: "2017-04-02T02:04:22.881Z"
+                }
+            });
+
+        }
+        */
     addNew(request, response) {
 
         var ref = firebase.database().ref('/');
